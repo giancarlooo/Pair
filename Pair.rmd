@@ -11,8 +11,57 @@ output:
 
 -------------------------------------------------------------------------------------
 
-#### An article in the Journal of Sound and Vibration [“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)] described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+#### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
 
 -------------------------------------------------------------------------------------
 
-sdkajhdsalkjhdkj
+<table style="width:100%"; border: 5px>
+  <tr>
+    <th>y</th>
+    <th>1</th>
+    <th>0</th>
+    <th>1</th>
+    <th>2</th>
+    <th>5</th>
+    <th>1</th>
+    <th>4</th>
+    <th>6</th>
+    <th>2</th>
+    <th>3</th>
+    <th>5</th>
+    <th>4</th>
+    <th>6</th>
+    <th>8</th>
+    <th>4</th>
+    <th>5</th>
+    <th>7</th>
+    <th>9</th>
+    <th>7</th>
+    <th>6</th>
+  </tr>
+ <tr>
+    <th>x</th>
+    <th>60</th>
+    <th>63</th>
+    <th>65</th>
+    <th>70</th>
+    <th>70</th>
+    <th>70</th>
+    <th>80</th>
+    <th>90</th>
+    <th>80</th>
+    <th>80</th>
+    <th>85</th>
+    <th>89</th>
+    <th>90</th>
+    <th>90</th>
+    <th>90</th>
+    <th>90</th>
+    <th>94</th>
+    <th>100</th>
+    <th>100</th>
+    <th>100</th>
+  </tr>
+</table>
+
+-------------------------------------------------------------------------------------
