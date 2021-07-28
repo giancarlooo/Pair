@@ -1,0 +1,18 @@
+---
+title: "Module 4 Pair Quiz"
+author: Gian Carlo Fernandez, Iris Salangad
+output: 
+  html_document:
+    highlight: pygments
+    theme: darkly
+---
+
+# Individual Quiz
+
+-------------------------------------------------------------------------------------
+
+#### An article in the Journal of Sound and Vibration [“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)] described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+
+-------------------------------------------------------------------------------------
+
+sdkajhdsalkjhdkj
