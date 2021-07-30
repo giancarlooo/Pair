@@ -17,7 +17,7 @@ output:
 
 -------------------------------------------------------------------------------------
 
-<table style="width:100%"; border: 5px>
+<table style="width:100%"; border = 1px>
   <tr>
     <th>y</th>
     <th>1</th>
