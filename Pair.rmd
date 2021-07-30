@@ -1,7 +1,7 @@
 ---
 title: "Module 4 Pair Quiz"
 author: Gian Carlo Fernandez, Iris Salangad
-output: 
+output:
   html_document:
     highlight: pygments
     theme: darkly
@@ -9,7 +9,7 @@ output:
 
 # Individual Quiz {.tabset}
 
-## Q1
+## Question 1
 
 ### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
 
@@ -66,9 +66,27 @@ output:
 
 -------------------------------------------------------------------------------------
 
-#### A. Draw a scatter diagram of y (blood pressure rise in millimeters of mercury) versus x (sound pressure level in decibels). Does a simple linear regression seem reasonable in this situation? 
+#### **A. Draw a scatter diagram of y (blood pressure rise in millimeters of mercury) versus x (sound pressure level in decibels). Does a simple linear regression seem reasonable in this situation?** 
 
-```{r}
+**In drawing scatter plots from this data, we'll use R:**
+
+<center>
+```{r, echo = F, fig.width = 6, fig.height = 4}
+y <- c(1, 0, 1, 2, 5, 1, 4, 6, 2, 3, 5, 4, 6, 8, 4, 5, 7, 9, 7, 6)
+
+x <- c(60, 63, 65, 70, 70, 70, 80, 90, 80, 80, 85, 89, 90, 90, 90, 90, 94, 100, 100, 100)
+
+plot(x,y, pch = 16, cex = 1, col = "dark green", main = "Sound Pressure Level vs Blood Pressure Rise", xlab = "Sound Pressure Levels (in decibels)", ylab = "Blood Pressure Rise (in mmHg)")
+```
+</center>
+<center>
+Graph 1. A Scatter Plot between **x** (*Sound Pressure Levels*) and **y** (*Blood Pressure Rise*)
+</center>
+
+---------------------------------------------------------------------------------------------
+
+<center>
+```{r, echo = F, fig.width = 6, fig.height = 4}
 y <- c(1, 0, 1, 2, 5, 1, 4, 6, 2, 3, 5, 4, 6, 8, 4, 5, 7, 9, 7, 6)
 
 x <- c(60, 63, 65, 70, 70, 70, 80, 90, 80, 80, 85, 89, 90, 90, 90, 90, 94, 100, 100, 100)
@@ -77,21 +95,134 @@ plot(x,y, pch = 16, cex = 1, col = "dark green", main = "Sound Pressure Level vs
 
 abline(lm(y ~ x))
 ```
-Graph 1. A Scatter Plot between **x** (*Sound Pressure Levels*) and **y** (*Blood Pressure Rise*)
+</center>
+<center>
+Graph 2. Also the Scatter Plot between **x** (*Sound Pressure Levels*) and **y** (*Blood Pressure Rise*) with a linear regression model calculated by **R**.
+</center>
+<br>
+Notice that the scatter plot and the linear regression model shows correspondence in slope and points. The relationship of Sound Pressure level (x) and the Blood Pressure Rise (y) displayed somehow the same results between the two graphing system. It is in this sense where we can conclude that a linear progression model **is reasonable** in this situation as it fits accordingly with the scatter plot data.
+
+----------------------------------------------------------------------------------------------
+
+#### **B. Fit the simple linear regression model using least squares. Find an estimate of $\sigma^2$.**
+
+**Least Squares Method:**
+
+$$ n = 20$$
+$$\sum_{i = 1}^{20}X_i = 1,656 \hspace{20pt} \sum_{i = 1}^{20}Y_i = 86$$
+
+$$\overline{x} = 82.8 \hspace{50pt} \overline{y} = 4.3$$
+
+$$\sum_{i = 1}^{20}X^2_i = 140,176 \hspace{20pt} \sum_{i = 1}^{20}Y^2_i = 494$$
+
+$$\sum_{i = 1}^{20}X_iY_i = 7,654$$
+
+We then calculate $S_{xx}$ and $S_{xy}$.
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
 
 
+:::: {}
+##### Solving for $S_{xx}$
 
-#### B. Fit the simple linear regression model using least squares. Find an estimate of $\sigma^2$.
+$$ \sum_{i = 1}^{n}(X_i - \overline{x})^2 = \sum_{i=1}^{n}X_i^2 - \frac{(\sum_{i=1}^{n}X_i)^2}{n}$$
+$$= \sum_{i=1}^{20}X_i^2 - \frac{(\sum_{i=1}^{20}X_i)^2}{20}$$
+$$= 140,176 - \frac{2,742,336}{20}$$
+$$= 140,176 - 137,116.8
+\\
+= 3,059.2$$
+:::
 
-#### C. Find the predicted mean rise in blood pressure level associated with a sound pressure level of 85 decibels.
+::: {}
+##### Solving for $S_{xy}$
 
-## Q2
+$$ \sum_{i=1}^{n}Y_i(X_i - \overline{x})^2 = \sum_{i=1}^{n}X_iY_i - \frac{(\sum_{i=1}^{n}X_i)(\sum_{i=1}^{n}Yi)}{n}$$
+$$= \sum_{i=1}^{20}X_iY_i - \frac{(\sum_{i=1}^{20}X_i)(\sum_{i=1}^{20}Yi)}{20}$$
+$$= 7,654 - \frac{(1,656)(86)}{20}$$
+$$= 7,654 - 7,120.8
+\\
+=533.2$$
+:::
 
--------------------------------------------------------------------------------------
+::::
 
-### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+From this, we can get the **least slope and intercept** which are:
 
-------
+$$ \hat{\beta} = \frac{S_{xy}}{S_{xx}}
+\\
+= \frac{533.2}{3,059.2}
+\\
+= 0.1742939331$$
+<br>
+$$ \hat{\beta}_0 = \overline{y} - \hat{\beta}_1 \overline{x}
+\\
+= 4.3 - (0.1743)(82.8)
+\\
+= - 10.13153766$$
+
+Using the **Least Squares Method**, the equation of the line that best fit the plot is:
+
+$$ y = 0.1743939331x - 10.13153766 $$
+<center>
+```{r, fig.width = 6, fig.height = 4}
+y <- c(1, 0, 1, 2, 5, 1, 4, 6, 2, 3, 5, 4, 6, 8, 4, 5, 7, 9, 7, 6)
+
+x <- c(60, 63, 65, 70, 70, 70, 80, 90, 80, 80, 85, 89, 90, 90, 90, 90, 94, 100, 100, 100)
+
+plot(x,y, pch = 16, cex = 1, col = "dark green", main = "Sound Pressure Level vs Blood Pressure Rise", xlab = "Sound Pressure Levels (in decibels)", ylab = "Blood Pressure Rise (in mmHg)")
+
+abline(- 10.13153766, 0.1743939331)
+```
+</center>
+<center>
+Graph 3. The Scatter Plot between **x** (*Sound Pressure Levels*) and **y** (*Blood Pressure Rise*) with the linear regression calculated using the **Least Squares Method**.
+</center>
+<br>
+
+#### Calculating the Variance $\sigma^2$
+
+```{r}
+model <- lm(y~x)
+
+deviance(model)
+```
+
+Since the sum of the squared of estimated errors is **31.26647**, we can substitute this to the equation:
+
+$$ \sigma^2 = \frac{SSE}{n-2} $$
+
+$$= \frac{31.26647}{20-2}
+\\
+= 1.737026111$$
+
+Therefore the $\sigma^2$ is equal to **1.737**.
+
+----------------------------------------------------------------------------------------------
+
+#### **C. Find the predicted mean rise in blood pressure level associated with a sound pressure level of 85 decibels.**
+
+Predicting the rise in blood pressure level associated with a sound pressure level is now easy to do since we calculated a linear regression of which we can use in the said process.
+
+$$ y = 0.1743939331x - 10.13153766 $$
+In this case, we simply just substitute **85 decibels** as x in the equation:
+
+$$ y = 0.1743939331x - 10.13153766$$
+
+$$ = 0.1743939331(85) - 10.13153766$$
+
+$$ = 14.82348431 - 10.13153766$$
+
+$$= 4.691946654$$
+
+Therefore, the blood pressure level will likely rise **4.69 mmHg** when the sound pressure level is **85 decibels**.
+
+<br>
+
+## Question 2
+
+### An article in Optical Engineering *["Operating Curve Extraction of a Correlator's Filter"(2004, Vol.43, pp. 2775-2779)]* reported on the use of an optical correlator to perform an experiment by varying brightness and contrast. The resulting modulation is characterized by the useful range of gray levels. The data follow:
+
+---------------------------------------------------------
 
 <table style="width:100%"; border: 5px>
   <tr>
@@ -130,3 +261,27 @@ Graph 1. A Scatter Plot between **x** (*Sound Pressure Levels*) and **y** (*Bloo
     <th>144</th>
     <th>255</th>
 </table>
+
+--------------------------------------------------------------------------------
+
+#### **A. Fit a multiple linear regression model to these data.**
+
+--------------------------------------------------------------------------------
+
+#### **B. Estimate $\sigma^2$.**
+
+--------------------------------------------------------------------------------
+
+#### **C. Compute the standard errors of the regression coefficients.**
+
+--------------------------------------------------------------------------------
+
+#### **D. Predict the useful range when the brightness=80 and contrast=75.**
+
+--------------------------------------------------------------------------------
+
+#### **E. Test for significance of regression using $\alpha = 0.05$. What is the P-value for this?**
+
+--------------------------------------------------------------------------------
+
+#### **F. Construct a $t$-test on each regression coefficient. What conclusions can you draw about the variables in this model? Use $\alpha=0.05$**.
