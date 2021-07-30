@@ -11,9 +11,7 @@ output:
 
 ## Q1
 
--------------------------------------------------------------------------------------
-
-#### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
 
 -------------------------------------------------------------------------------------
 
@@ -68,21 +66,30 @@ output:
 
 -------------------------------------------------------------------------------------
 
+#### A. Draw a scatter diagram of y (blood pressure rise in millimeters of mercury) versus x (sound pressure level in decibels). Does a simple linear regression seem reasonable in this situation? 
+
 ```{r}
-height <- c(176, 154, 138, 196, 132, 176, 181, 169, 150, 175)
+y <- c(1, 0, 1, 2, 5, 1, 4, 6, 2, 3, 5, 4, 6, 8, 4, 5, 7, 9, 7, 6)
 
-bodymass <- c(82, 49, 53, 112, 47, 69, 77, 71, 62, 78)
+x <- c(60, 63, 65, 70, 70, 70, 80, 90, 80, 80, 85, 89, 90, 90, 90, 90, 94, 100, 100, 100)
 
-plot(bodymass, height)
+plot(x,y, pch = 16, cex = 1, col = "dark green", main = "Sound Pressure Level vs Blood Pressure Rise", xlab = "Sound Pressure Levels (in decibels)", ylab = "Blood Pressure Rise (in mmHg)")
 
-abline(lm(height ~ bodymass))
+abline(lm(y ~ x))
 ```
+Graph 1. A Scatter Plot between **x** (*Sound Pressure Levels*) and **y** (*Blood Pressure Rise*)
+
+
+
+#### B. Fit the simple linear regression model using least squares. Find an estimate of $\sigma^2$.
+
+#### C. Find the predicted mean rise in blood pressure level associated with a sound pressure level of 85 decibels.
 
 ## Q2
 
 -------------------------------------------------------------------------------------
 
-#### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
+### An article in the Journal of Sound and Vibration *[“Measurement of Noise-Evoked Blood Pressure by Means of Averaging Method: Relation between Blood Pressure Rise and PSL” (1991, Vol. 151(3), pp. 383-394)]* described a study investigating the relationship between noise exposure and hypertension. The following data are representative of those reported in the article.
 
 ------
 
