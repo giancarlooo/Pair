@@ -282,7 +282,7 @@ $x_1 =$ Brightness
 
 $x_2 =$ Contrast
 
-```{r MLRM}
+```{r MLRM, echo=FALSE}
 #Multiple Linear Regression Model
 
 #Importing Data
@@ -321,7 +321,7 @@ $$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
 
 #### **B. Estimate $\sigma^2$.**
 
-``` {r 2}
+``` {r 2, echo=FALSE}
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
 
@@ -340,10 +340,25 @@ summary(PAIR_QUIZ)
 #### **C. Compute the standard errors of the regression coefficients.**
 
 
+```{r standard errors}
+#Importing Data
+library(readxl)
+PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
+PAIR_QUIZ
+
+
+
+#Fitting Multiple Linear Regression
+PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
+summary(PAIR_QUIZ)
+
+```
 
 --------------------------------------------------------------------------------
 
 #### **D. Predict the useful range when the brightness=80 and contrast=75.**
+
+
 
 --------------------------------------------------------------------------------
 
