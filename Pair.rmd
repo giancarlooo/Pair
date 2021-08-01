@@ -282,7 +282,7 @@ $x_1 =$ Brightness
 
 $x_2 =$ Contrast
 
-```{r MLRM}
+```{r MLRM, echo=FALSE}
 #Multiple Linear Regression Model
 
 #Importing Data
@@ -321,7 +321,7 @@ $$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
 
 #### **B. Estimate $\sigma^2$.**
 
-``` {r 2}
+``` {r 2, echo=FALSE}
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
 PAIR_QUIZ 
