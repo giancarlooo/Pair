@@ -287,8 +287,8 @@ $x_2 =$ Contrast
 
 #Importing Data
 library(readxl)
-PAIR_QUIZ <- read_excel("C:/Users/anthony/Downloads/PAIR QUIZ.xlsx")
-View(PAIR_QUIZ)
+PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
+PAIR_QUIZ
 
 # matrix of Scatter plots
 pairs(PAIR_QUIZ[,1:3])
@@ -323,10 +323,10 @@ $$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
 
 ``` {r 2}
 library(readxl)
-PAIR_QUIZ <- read_excel("C:/Users/anthony/Downloads/PAIR QUIZ.xlsx")
-View(PAIR_QUIZ)
+PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
+PAIR_QUIZ 
 
-Variance<- read_excel("C:/Users/anthony/Downloads/PAIR QUIZ.xlsx")
+Variance<- read_excel("PAIR QUIZ.xlsx")
 PAIR_QUIZ<-aov(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
 
