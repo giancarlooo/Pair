@@ -324,7 +324,9 @@ $$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
 ``` {r 2}
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
-PAIR_QUIZ 
+
+
+knitr::kable(PAIR_QUIZ, "pipe", col.names = c("Brightness", "Contrast", "Useful Range"), align = c("c", "c", "c"))
 
 Variance<- read_excel("PAIR QUIZ.xlsx")
 PAIR_QUIZ<-aov(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
