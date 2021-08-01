@@ -289,17 +289,21 @@ $x_2 =$ Contrast
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
 PAIR_QUIZ
+```
 
+```{r, echo=FALSE, fig.align='center',fig.cap="Figure 0.0 Title"}
 # matrix of Scatter plots
-pairs(PAIR_QUIZ[,1:3])
+pairs(PAIR_QUIZ[,1:3], col = "dark green", main = "hehe")
+```
 
+```{r, echo=FALSE, fig.align='center',fig.cap="Figure 0.0 Title"}
 #Correlation coefficient matrix
 round(cor(PAIR_QUIZ, method="pearson"), 2)
+```
 
-
-
+```{r, echo=FALSE, fig.align='center',fig.cap="Figure 0.0 Title"}
 #Fitting Multiple Linear Regression
-plot(PAIR_QUIZ)
+plot(PAIR_QUIZ, col = "dark green", main = "Hekhok")
 PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
 
