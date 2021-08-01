@@ -274,7 +274,7 @@ Therefore, the blood pressure level will likely rise **4.69 mmHg** when the soun
 First, we will be identifying the formula for Multiple Regression, which is: 
 
 $$ \displaystyle y = \beta _0 + \beta _1x_1 + \beta _2x_2 $$
-**Given:**
+Given that:
 
 $Y =$ Useful Range
 
@@ -289,25 +289,21 @@ $x_2 =$ Contrast
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
 PAIR_QUIZ
-```
 
-```{r, echo=FALSE, fig.align= 'center', fig.cap="Figure 0.0 Title"}
 # matrix of Scatter plots
-pairs(PAIR_QUIZ[,1:3], col = "dark green")
-```
+pairs(PAIR_QUIZ[,1:3])
 
-```{r, echo=FALSE}
 #Correlation coefficient matrix
 round(cor(PAIR_QUIZ, method="pearson"), 2)
-```
 
-```{r, echo=FALSE, fig.align= 'center', fig.cap="Figure 0.0 Title"}
+
+
 #Fitting Multiple Linear Regression
-plot(PAIR_QUIZ, col = "dark green")
+plot(PAIR_QUIZ)
 PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
-```
 
+```
 According to the result above,
 
 $\beta _0 = 238.5569$
@@ -344,7 +340,7 @@ summary(PAIR_QUIZ)
 #### **C. Compute the standard errors of the regression coefficients.**
 
 
-```{r standard errors, echo=FALSE}
+```{r standard errors}
 #Importing Data
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
@@ -362,11 +358,24 @@ summary(PAIR_QUIZ)
 
 #### **D. Predict the useful range when the brightness=80 and contrast=75.**
 
+Using the formula of the multiple regression model from the part A, 
 
+$$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
+
+We can plug in the values of the brightness=80 and contrast=75:
+where 
+
+$X_1 = 80$
+$X_2 = 75$
+
+$$ y = 238.5569 + 0.3339(80) - 2.7167(75) $$
+$$ y = 61.5164 $$
 
 --------------------------------------------------------------------------------
 
 #### **E. Test for significance of regression using $\alpha = 0.05$. What is the P-value for this?**
+
+
 
 --------------------------------------------------------------------------------
 
