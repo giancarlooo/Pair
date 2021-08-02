@@ -282,8 +282,13 @@ $x_1 =$ Brightness
 
 $x_2 =$ Contrast
 
+This is the set of data given above. 
+
+
+
 ```{r MLRM, echo=FALSE}
 #Multiple Linear Regression Model
+
 
 #Importing Data
 library(readxl)
@@ -374,6 +379,34 @@ $$ y = 61.5164 $$
 --------------------------------------------------------------------------------
 
 #### **E. Test for significance of regression using $\alpha = 0.05$. What is the P-value for this?**
+
+The hypothesis are:
+
+$H_0 : \beta _1 = \beta _2 = ... = \beta _k = 0$
+
+$H_1 : \beta _j \neq 0$ 
+
+The formula for the test statistic: 
+
+$F_0 = \frac {SS_R / k}{SS_E / (n-p)} = \frac {MS_R}{MS_E}$
+
+The null hypothesis will be rejected if $f_0$ is greater than $ f_ \alpha ,_k ,_n-p $
+
+Using these tables, 
+
+```{r test for significance}
+#Importing Data
+library(readxl)
+PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
+PAIR_QUIZ
+
+
+
+#Fitting Multiple Linear Regression
+PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
+summary(PAIR_QUIZ)
+
+```
 
 
 

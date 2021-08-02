@@ -456,6 +456,7 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 <p><span class="math inline">\(Y =\)</span> Useful Range</p>
 <p><span class="math inline">\(x_1 =\)</span> Brightness</p>
 <p><span class="math inline">\(x_2 =\)</span> Contrast</p>
+<p>This is the set of data given above.</p>
 <pre><code>## # A tibble: 9 x 3
 ##   Brightness Contrast    UR
 ##        &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -619,6 +620,51 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 </div>
 <div id="e.-test-for-significance-of-regression-using-alpha-0.05.-what-is-the-p-value-for-this" class="section level4">
 <h4><strong>E. Test for significance of regression using <span class="math inline">\(\alpha = 0.05\)</span>. What is the P-value for this?</strong></h4>
+<p>The hypothesis are:</p>
+<p><span class="math inline">\(H_0 : \beta _1 = \beta _2 = ... = \beta _k = 0\)</span></p>
+<p><span class="math inline">\(H_1 : \beta _j \neq 0\)</span></p>
+<p>The formula for the test statistic:</p>
+<p><span class="math inline">\(F_0 = \frac {SS_R / k}{SS_E / (n-p)} = \frac {MS_R}{MS_E}\)</span></p>
+<p>The null hypothesis will be rejected if <span class="math inline">\(f_0\)</span> is greater than $ f_ ,_k ,_n-p $</p>
+<p>Using these tables,</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing Data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>PAIR_QUIZ <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;PAIR QUIZ.xlsx&quot;</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>PAIR_QUIZ</span></code></pre></div>
+<pre><code>## # A tibble: 9 x 3
+##   Brightness Contrast    UR
+##        &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1         54       56    96
+## 2         61       80    50
+## 3         65       70    50
+## 4        100       50   112
+## 5        100       65    96
+## 6        100       80    80
+## 7         50       25   155
+## 8         57       35   144
+## 9         54       26   255</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Fitting Multiple Linear Regression</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>PAIR_QUIZ<span class="ot">&lt;-</span><span class="fu">lm</span>(UR <span class="sc">~</span> Brightness <span class="sc">+</span> Contrast, <span class="at">data=</span>PAIR_QUIZ)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(PAIR_QUIZ)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = UR ~ Brightness + Contrast, data = PAIR_QUIZ)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -32.334 -20.090  -8.451   8.413  69.047 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept) 238.5569    45.2285   5.274  0.00188 **
+## Brightness    0.3339     0.6763   0.494  0.63904   
+## Contrast     -2.7167     0.6887  -3.945  0.00759 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 36.35 on 6 degrees of freedom
+## Multiple R-squared:  0.7557, Adjusted R-squared:  0.6742 
+## F-statistic: 9.278 on 2 and 6 DF,  p-value: 0.01459</code></pre>
 <hr />
 </div>
 <div id="f.-construct-a-t-test-on-each-regression-coefficient.-what-conclusions-can-you-draw-about-the-variables-in-this-model-use-alpha0.05." class="section level4">
