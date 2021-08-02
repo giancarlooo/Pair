@@ -503,72 +503,19 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 </div>
 <div id="b.-estimate-sigma2." class="section level4">
 <h4><strong>B. Estimate <span class="math inline">\(\sigma^2\)</span>.</strong></h4>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Brightness</th>
-<th align="center">Contrast</th>
-<th align="center">Useful Range</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">54</td>
-<td align="center">56</td>
-<td align="center">96</td>
-</tr>
-<tr class="even">
-<td align="center">61</td>
-<td align="center">80</td>
-<td align="center">50</td>
-</tr>
-<tr class="odd">
-<td align="center">65</td>
-<td align="center">70</td>
-<td align="center">50</td>
-</tr>
-<tr class="even">
-<td align="center">100</td>
-<td align="center">50</td>
-<td align="center">112</td>
-</tr>
-<tr class="odd">
-<td align="center">100</td>
-<td align="center">65</td>
-<td align="center">96</td>
-</tr>
-<tr class="even">
-<td align="center">100</td>
-<td align="center">80</td>
-<td align="center">80</td>
-</tr>
-<tr class="odd">
-<td align="center">50</td>
-<td align="center">25</td>
-<td align="center">155</td>
-</tr>
-<tr class="even">
-<td align="center">57</td>
-<td align="center">35</td>
-<td align="center">144</td>
-</tr>
-<tr class="odd">
-<td align="center">54</td>
-<td align="center">26</td>
-<td align="center">255</td>
-</tr>
-</tbody>
-</table>
+<p>According to the table below,</p>
 <pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
 ## Brightness   1   3960    3960   2.997 0.13412   
 ## Contrast     1  20558   20558  15.559 0.00759 **
 ## Residuals    6   7928    1321                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>The <span class="math inline">\(\sigma^2\)</span> is equal to <strong>1321.3</strong></p>
 <hr />
 </div>
 <div id="c.-compute-the-standard-errors-of-the-regression-coefficients." class="section level4">
 <h4><strong>C. Compute the standard errors of the regression coefficients.</strong></h4>
+<p>Based on this table,</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing Data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>PAIR_QUIZ <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;PAIR QUIZ.xlsx&quot;</span>)</span>
@@ -607,6 +554,10 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 ## Residual standard error: 36.35 on 6 degrees of freedom
 ## Multiple R-squared:  0.7557, Adjusted R-squared:  0.6742 
 ## F-statistic: 9.278 on 2 and 6 DF,  p-value: 0.01459</code></pre>
+<p>The standard of errors of the regression coefficients are:</p>
+<p>Std. Error for <strong>Useful Range</strong> <span class="math inline">\(= 45.2285\)</span></p>
+<p>Std. Error for <strong>Brightness</strong> <span class="math inline">\(= 0.6763\)</span></p>
+<p>Std. Error for <strong>Contrast</strong> <span class="math inline">\(= 0.6887\)</span></p>
 <hr />
 </div>
 <div id="d.-predict-the-useful-range-when-the-brightness80-and-contrast75." class="section level4">
@@ -615,7 +566,7 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 <p><span class="math display">\[ y = 238.5569 + 0.3339x_1 - 2.7167x_2 \]</span></p>
 <p>We can plug in the values of the brightness=80 and contrast=75: where</p>
 <p><span class="math inline">\(X_1 = 80\)</span> <span class="math inline">\(X_2 = 75\)</span></p>
-<p><span class="math display">\[ y = 238.5569 + 0.3339(80) - 2.7167(75) \]</span> <span class="math display">\[ y = 61.5164 \]</span></p>
+<p><span class="math display">\[ y = 238.5569 + 0.3339(80) - 2.7167(75) \]</span> <span class="math display">\[ y = 61.5164 \]</span> The <strong>value of the useful range</strong> when the brightness = 80 and contrast = 75 is <strong>61.5164</strong></p>
 <hr />
 </div>
 <div id="e.-test-for-significance-of-regression-using-alpha-0.05.-what-is-the-p-value-for-this" class="section level4">
@@ -625,8 +576,8 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 <p><span class="math inline">\(H_1 : \beta _j \neq 0\)</span></p>
 <p>The formula for the test statistic:</p>
 <p><span class="math inline">\(F_0 = \frac {SS_R / k}{SS_E / (n-p)} = \frac {MS_R}{MS_E}\)</span></p>
-<p>The null hypothesis will be rejected if <span class="math inline">\(f_0\)</span> is greater than $ f_ ,_k ,_n-p $</p>
-<p>Using these tables,</p>
+<p>The null hypothesis will be rejected if <span class="math inline">\(f_0\)</span> is greater than <span class="math inline">\(f_{0.05,2,6}\)</span></p>
+<p>Using this table,</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing Data</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>PAIR_QUIZ <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;PAIR QUIZ.xlsx&quot;</span>)</span>
@@ -665,10 +616,33 @@ Graph 3. The Scatter Plot between <strong>x</strong> (<em>Sound Pressure Levels<
 ## Residual standard error: 36.35 on 6 degrees of freedom
 ## Multiple R-squared:  0.7557, Adjusted R-squared:  0.6742 
 ## F-statistic: 9.278 on 2 and 6 DF,  p-value: 0.01459</code></pre>
+<p>The p-value is equal to 0.01459.</p>
+<p>The <span class="math inline">\(f_0\)</span>, or the f-statistic, is equal to 9.278 and the <span class="math inline">\(f_{0.05,2,6}\)</span>, or the f-critical value with 2 and 6 as degree of freedoms, is equal to <span class="math inline">\(5.1432528\)</span>.</p>
+<p>Since <span class="math inline">\(9.278 &gt; 5.1432528\)</span>, we can say that the null hypothesis is rejected.</p>
 <hr />
 </div>
 <div id="f.-construct-a-t-test-on-each-regression-coefficient.-what-conclusions-can-you-draw-about-the-variables-in-this-model-use-alpha0.05." class="section level4">
 <h4><strong>F. Construct a <span class="math inline">\(t\)</span>-test on each regression coefficient. What conclusions can you draw about the variables in this model? Use <span class="math inline">\(\alpha=0.05\)</span></strong>.</h4>
+<p>The hypotheses are:</p>
+<p><span class="math inline">\(H_0 : \beta _1 = \beta _2 = ... = \beta _k = 0\)</span></p>
+<p><span class="math inline">\(H_1 : \beta _j \neq 0\)</span></p>
+<p>Based on this table,</p>
+<pre class="t"><code>#Importing Data
+library(readxl)
+PAIR_QUIZ &lt;- read_excel(&quot;PAIR QUIZ.xlsx&quot;)
+PAIR_QUIZ
+
+
+
+#Fitting Multiple Linear Regression
+PAIR_QUIZ&lt;-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
+summary(PAIR_QUIZ)
+</code></pre>
+<p>the test statistics are:</p>
+<p><span class="math inline">\(t_0, _{\beta0} = 5.274\)</span></p>
+<p><span class="math inline">\(t_0, _{\beta1} = 0.494\)</span></p>
+<p><span class="math inline">\(t_0, _{\beta2} = -3.945\)</span></p>
+<p>COEFFICIENT <span class="math inline">\(\beta_1\)</span> : BRIGHTNESS</p>
 <hr />
 </div>
 <div id="references" class="section level4">

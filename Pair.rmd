@@ -326,24 +326,25 @@ $$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
 
 #### **B. Estimate $\sigma^2$.**
 
+According to the table below, 
+
 ``` {r 2, echo=FALSE}
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
-
-
-knitr::kable(PAIR_QUIZ, "pipe", col.names = c("Brightness", "Contrast", "Useful Range"), align = c("c", "c", "c"))
 
 Variance<- read_excel("PAIR QUIZ.xlsx")
 PAIR_QUIZ<-aov(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
 
 ```
+The $\sigma^2$ is equal to **1321.3**
 
 --------------------------------------------------------------------------------
 
 
 #### **C. Compute the standard errors of the regression coefficients.**
 
+Based on this table, 
 
 ```{r standard errors}
 #Importing Data
@@ -358,6 +359,13 @@ PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
 
 ```
+The standard of errors of the regression coefficients are:
+
+Std. Error for **Useful Range** $= 45.2285$
+
+Std. Error for **Brightness** $= 0.6763$
+
+Std. Error for **Contrast** $= 0.6887$
 
 --------------------------------------------------------------------------------
 
@@ -375,6 +383,7 @@ $X_2 = 75$
 
 $$ y = 238.5569 + 0.3339(80) - 2.7167(75) $$
 $$ y = 61.5164 $$
+The **value of the useful range** when the brightness = 80 and contrast = 75 is **61.5164**
 
 --------------------------------------------------------------------------------
 
@@ -390,9 +399,9 @@ The formula for the test statistic:
 
 $F_0 = \frac {SS_R / k}{SS_E / (n-p)} = \frac {MS_R}{MS_E}$
 
-The null hypothesis will be rejected if $f_0$ is greater than $ f_ \alpha ,_k ,_n-p $
+The null hypothesis will be rejected if $f_0$ is greater than $f_{0.05,2,6}$
 
-Using these tables, 
+Using this table, 
 
 ```{r test for significance}
 #Importing Data
@@ -408,11 +417,53 @@ summary(PAIR_QUIZ)
 
 ```
 
+The p-value is equal to 0.01459.
+
+The $f_0$, or the f-statistic, is equal to 9.278 and the $f_{0.05,2,6}$, or the f-critical value with 2 and 6 as degree of freedoms, is equal to $5.1432528$. 
+
+Since $9.278 > 5.1432528$, we can say that the null hypothesis is rejected. 
+
+
 
 
 --------------------------------------------------------------------------------
 
 #### **F. Construct a $t$-test on each regression coefficient. What conclusions can you draw about the variables in this model? Use $\alpha=0.05$**.
+
+The hypotheses are: 
+
+$H_0 : \beta _1 = \beta _2 = ... = \beta _k = 0$
+
+$H_1 : \beta _j \neq 0$ 
+
+Based on this table, 
+
+```{t test}
+#Importing Data
+library(readxl)
+PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
+PAIR_QUIZ
+
+
+
+#Fitting Multiple Linear Regression
+PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
+summary(PAIR_QUIZ)
+
+```
+
+the test statistics are: 
+
+$t_0, _{\beta0} = 5.274$ 
+
+$t_0, _{\beta1} = 0.494$ 
+
+$t_0, _{\beta2} = -3.945$ 
+
+COEFFICIENT $\beta_1$ : BRIGHTNESS
+
+
+
 
 
 -------------------------------------------------------------------------------
