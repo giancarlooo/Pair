@@ -321,7 +321,7 @@ $\beta _1 = 0.3339$
 
 $\beta _2 = -2.7167$
 
-Therefore, the multiple linear regression model is: 
+Therefore, the **multiple linear regression model** is: 
 
 $$ y = 238.5569 + 0.3339x_1 - 2.7167x_2 $$
 
@@ -354,8 +354,6 @@ Based on this table,
 #Importing Data
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
-PAIR_QUIZ
-
 
 
 #Fitting Multiple Linear Regression
@@ -403,7 +401,7 @@ The formula for the test statistic:
 
 $F_0 = \frac {SS_R / k}{SS_E / (n-p)} = \frac {MS_R}{MS_E}$
 
-The null hypothesis will be rejected if $f_0$ is greater than $f_{0.05,2,6}$
+The **null hypothesis will be rejected** if $f_0$ > $f_{0.05,2,6}$
 
 Using this table, 
 
@@ -421,7 +419,7 @@ summary(PAIR_QUIZ)
 
 ```
 
-The p-value is equal to 0.01459.
+The **p-value** is equal to 0.01459.
 
 The $f_0$, or the f-statistic, is equal to 9.278 and the $f_{0.05,2,6}$, or the f-critical value with 2 and 6 as degree of freedoms, is equal to $5.1432528$. 
 
@@ -436,24 +434,20 @@ Since $9.278 > 5.1432528$, we can say that the null hypothesis is rejected.
 
 The hypotheses are: 
 
-$H_0 : \beta _1 = \beta _2 = ... = \beta _k = 0$
+$H_0 : \beta _0 = 0 , \beta _1 = 0 , \beta _2 = 0$
 
-$H_1 : \beta _j \neq 0$ 
+$H_1 : \beta _0 \neq 0 , \beta _1 \neq 0 , \beta _2 \neq 0$
 
 Based on this table, 
 
-```{t test}
+```{r}
 #Importing Data
 library(readxl)
 PAIR_QUIZ <- read_excel("PAIR QUIZ.xlsx")
-PAIR_QUIZ
-
-
 
 #Fitting Multiple Linear Regression
 PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
-
 ```
 
 the test statistics are: 
@@ -464,8 +458,18 @@ $t_0, _{\beta1} = 0.494$
 
 $t_0, _{\beta2} = -3.945$ 
 
-COEFFICIENT $\beta_1$ : BRIGHTNESS
 
+$\beta_1$ : BRIGHTNESS
+
+As $|t_0| < t _{0.025,6}$, we can say that we **fail to reject** the $H_0 : \beta_1 = 0$. 
+
+Therefore, the **brightness does not significantly contribute to the model.**  
+
+$\beta_2$ : CONTRAST
+
+As $|t_0| > t _{a/2,n-p}$ , we can say that we **reject** the $H_0 : \beta_2 = 0$. 
+
+Therefore, the **contrast significantly contributes to the model.**
 
 
 
