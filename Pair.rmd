@@ -3,8 +3,8 @@ title: "Module 4 Pair Quiz"
 author: Gian Carlo Fernandez, Iris Salangad
 output:
   html_document:
-    highlight: pygments
-    theme: darkly
+    highlight: tango
+    theme: cerulean
 ---
 
 # Individual Quiz {.tabset}
@@ -301,9 +301,9 @@ PAIR_QUIZ
 round(cor(PAIR_QUIZ, method="pearson"), 2)
 ```
 
-```{r, echo=FALSE, fig.align='center',fig.cap="Figure 0.0 Title"}
+```{r, echo=FALSE, fig.align='center',fig.cap="Figure 1. Multiple Linear Regression Model"}
 #Fitting Multiple Linear Regression
-plot(PAIR_QUIZ, col = "dark green", main = "Hekhok")
+plot(PAIR_QUIZ, col = "dark green", main = "Multiple Linear Regression Model")
 PAIR_QUIZ<-lm(UR ~ Brightness + Contrast, data=PAIR_QUIZ)
 summary(PAIR_QUIZ)
 
@@ -471,6 +471,6 @@ Therefore, the **contrast significantly contributes to the model.**
 
 -------------------------------------------------------------------------------
 
-#### References:
+#### **References:**
 
 https://www.youtube.com/watch?v=Uo2YflerjI4
